@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 
 # Load the pre-trained model from file
-model = joblib.load('dump/proj_model.pkl')
+model = joblib.load('proj_model.pkl')
 
 # Configure the Streamlit page (title and layout)
 st.set_page_config(page_title="Census Income Prediction", layout="wide")
