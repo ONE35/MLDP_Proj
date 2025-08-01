@@ -5,6 +5,7 @@ import numpy as np
 
 # Load the pre-trained model from file
 model = joblib.load('proj_model.pkl')
+feature_names = joblib.load('feature_names.pkl')
 
 # Configure the Streamlit page (title and layout)
 st.set_page_config(page_title="Census Income Prediction", layout="wide")
@@ -116,7 +117,7 @@ if st.button("Predict Income"):
 
     # One-hot encode categorical inputs and align columns with training data
     df_input = pd.get_dummies(df_input)
-    df_input = df_input.reindex(columns=model.feature_names_in_, fill_value=0)
+    df_input = df_input.reindex(columns=model.feature_names, fill_value=0)
 
     # Use the loaded model to predict income bracket
     prediction = model.predict(df_input)[0]
